@@ -34,6 +34,7 @@ $formHtml = new HtmlForm($fields);
 	<? $formHtml->renderForm();?>
     </div>
     <div class="col"></div>
+    
 </div>
 
 </body>

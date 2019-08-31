@@ -20,7 +20,7 @@ class HtmlTable
 
 
     private function renderStart(){
-        echo '<table class="table table-hover" >';
+        echo '<table class="table table-condensed table-striped" >';
     }
 
     private function renderEnd(){
@@ -31,12 +31,16 @@ class HtmlTable
 
     private function renderHeader(){
         ?>
-            <thead>
+            <thead >
                 <tr>
                 <? 
 
-                    foreach($this->columns as $c){     
-                        echo '<th scope="col" width="'. $c->Width .'" >'. $c->Text .'</th>';
+                    foreach($this->columns as $c){   
+                        
+                        $atributes = isset($c->ColumnAttributes) ?  $c->ColumnAttributes : "";
+                        echo '<th scope="col" ' . 
+                        "". $atributes . "" . 
+                        '>'. $c->Text .'</th>';
                     }
                 ?>
 

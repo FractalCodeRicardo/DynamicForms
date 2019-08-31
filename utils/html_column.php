@@ -7,9 +7,9 @@ class HtmlColumn{
 
     public $Index;
     public $Text;
-    public $Width;
-
     public $Expression;
+
+    public $ColumnAttributes;
 
 
     public static function createColumns($arrayStrings){

@@ -1,17 +1,4 @@
 
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-	 <link rel="stylesheet" href="css/bootstrap.css" media="screen">
-
-	<title>Dynamic forms</title>
-</head>
-<body>
-
-
 <?php 
 
 include "data/connection.php";
@@ -24,32 +11,34 @@ $data = new FormsData($con->getPDO());
 
 $stmt = $data->getForms();
 
-
-
-
  ?>
 
 
- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
- 	 <a class="navbar-brand" href="#">Forms</a>
- </nav>
+<? include 'header.php'?>
 
+<div class="bs-docs-section">
 
-<div class="container">
+	<div class="page-header"><h1>Forms</h1></div>
 
-<div class="row">
-	<div class="col-10"></div>
-	<div class="col-2">
-		<a href=edit_form.php class="btn btn-primary" role="button" tabindex="0">Add</a>
+	<div class="row">
+		<div class="col-10"></div>
+		<div class="col-2">
+			<a href=edit_form.php class="btn btn-primary" role="button" tabindex="0">Add</a>
+		</div>
 	</div>
-</div>
+
 	<div class="row">
 
-		<div class="col">
+		<div class="col-lg-12">
 			<?
-			$linkColumn=array(HtmlColumn::createLinkColumn("Ver", function ($row) { return "./form.php?id=". $row[0];}));
+
+			$linkColumn = HtmlColumn::createLinkColumn("Ver", function ($row) { return "./form.php?id=". $row[0];});
+			$linkColumn->ColumnAttributes =  'style="width: 10%"';
+			$linkColumns=array($linkColumn);
+			
+
 			$textColumns = HtmlColumn::createColumns(array('Form', 'Description'));
-			$columns = array_merge($linkColumn, $textColumns);
+			$columns = array_merge($linkColumns, $textColumns);
 			$table = new HtmlTable($columns);
 			$table->renderHtml($stmt);
 			?>
@@ -57,13 +46,6 @@ $stmt = $data->getForms();
 
 
 	</div>
-
-
-
 </div>
 
-
-
-
-</body>
-</html>
+<? include 'footer.php'?>

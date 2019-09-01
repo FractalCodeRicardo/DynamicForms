@@ -32,3 +32,6 @@ add constraint FK_columns_types foreign key (id_type) references types (id)
 
 alter table columns
 add constraint FK_columns_forms foreign key (id_form) references forms (id)
+
+
+ALTER TABLE columns MODIFY COLUMN id INT auto_increment

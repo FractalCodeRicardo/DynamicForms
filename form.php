@@ -1,16 +1,13 @@
-<html>
-
-<head>
-	 <link rel="stylesheet" href="css/bootstrap.css" media="screen">
-	<title>Dynamic forms</title>
-</head>
-<body>
+<? include 'header.php' ?>
 <?
 
 include "utils/html_form.php";
 include "utils/html_field.php";
 include "data/connection.php";
 include "data/forms_data.php";
+include "model/form.php";
+include "model/column.php";
+
 
 $con =  new Connection();
 $data = new FormsData($con->getPDO());
@@ -34,9 +31,6 @@ $formHtml = new HtmlForm($fields);
 	<? $formHtml->renderForm();?>
     </div>
     <div class="col"></div>
-    
 </div>
 
-</body>
-
-</html>
+<? include 'footer.php' ?>

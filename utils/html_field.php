@@ -6,6 +6,7 @@ class HtmlField{
     public $Type;
     public $Text;
     public $Name;
+    public $Value;
 
 
     function __construct($type, $text, $name){
@@ -36,7 +37,12 @@ class HtmlField{
 
 
     function renderControl(){
-        echo '<input class="form-control" type="'. $this->Type .'" name="'. $this->Name  . '" placeholder="'. $this->Text . '"></input>';
+        $value ="";
+
+        if($this->Value!=null)
+            $value='value="'. $this->Value .'"';
+
+        echo '<input class="form-control" type="'. $this->Type .'" name="'. $this->Name  . '" placeholder="'. $this->Text . '" '  . $value .  ' ></input>';
     }
 
     function renderStartField(){

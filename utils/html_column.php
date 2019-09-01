@@ -39,7 +39,7 @@ class HtmlColumn{
         $column->Expression = function($row) use(&$lambdaLink, &$text)
         { 
 
-            return '<a href="' . $lambdaLink($row) . '">'. $text . '</a>';
+            return '<a href="' . $lambdaLink($row) . '" class="btn btn-primary btn-sm">'. $text . '</a>';
         };
 
         return $column;

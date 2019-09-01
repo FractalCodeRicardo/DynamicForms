@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
-    <title>Form</title>
-</head>
-<body>
-    <?
 
-      
-    ?>
+    
+<? include 'header.php'?>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-4">
-            
 <?
     include 'utils/html_field.php';
     include 'utils/html_form.php';
@@ -25,15 +10,26 @@
     include 'model/form.php';
 
 
+    $currentForm = null;
 
+    if( isset($_POST['description']) ){
+        guardar();
+    }
 
-    if(isset($_POST['id']) &&  isset($_POST['description']) ){
+    if(isset($_GET['id'])){
+        $currentForm=getForm();
+    }
 
+    function guardar(){
         try{
+
+            global $currentForm;
+
             $con =  new Connection();
             $data = new FormsData($con->getPDO());
             $form = new Form();
-            $form->Id = $_POST['id'];
+
+            $form->Id = $_POST['id'];;
             $form->Description = $_POST['description'];
     
     
@@ -46,36 +42,45 @@
         catch (Exception $ex){
             var_dump(ex);
         }
- 
     }
 
+    function getForm(){
+      
 
-    $idInput = new HtmlField('text','ID','id');
-    $descriptionInput = new HtmlField('text','Description','description');
-    $button = new HtmlField('submit','Save','save');
+        try{
+            $id = $_GET['id'];
+            $con =  new Connection();
+            $data = new FormsData($con->getPDO());
+            $form = $data->getForm($id);
+            return $form;
+        }
+        catch (Exception $ex){
+            var_dump(ex);
+        }
+    }
 
-    $fields = array($idInput, $descriptionInput, $button);
+    ?>
 
-    $form = new HtmlForm($fields);
-    $form->Action='edit_form.php';
-    $form->Method='POST';
-
-    $form->renderForm();
-
-
-?>
+    <div class="row">
+        <div class="col-4">
 
 
 
 
+            <form action="edit_form.php" method="POST" >
+
+            <input type="hidden" name="id" value="<? echo $currentForm ==null ? "0" : $currentForm->Id  ?>"/>
+            <div class="form-group">
+                <label >Description</label>
+                <input type="text" class="form-control" name="description" placeholder="Description" 
+                value="<? echo $currentForm ==null ? "" : $currentForm->Description  ?>">
             </div>
-        
+
+            <input type="submit" value="Guardar"/>
+
         </div>
     </div>
 
 
 
-</body>
-</html>
-
-
+<? include 'footer.php'?>

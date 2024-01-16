@@ -1,4 +1,4 @@
-<?
+<?php
 
     include 'data/forms_data.php';
     include 'data/connection.php';
@@ -18,7 +18,7 @@
             die();  
         }
         catch (Exception $ex){
-            var_dump(ex);
+            var_dump($ex);
         }
 
  

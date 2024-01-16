@@ -1,5 +1,5 @@
-<? include 'header.php' ?>
-<?
+<?php include 'header.php' ?>
+<?php
 
 include "utils/html_form.php";
 include "utils/html_field.php";
@@ -28,9 +28,9 @@ $formHtml = new HtmlForm($fields);
 <div class="row">
     <div class="col"></div>
     <div class="col">
-	<? $formHtml->renderForm();?>
+	<?php $formHtml->renderForm();?>
     </div>
     <div class="col"></div>
 </div>
 
-<? include 'footer.php' ?>
+<?php include 'footer.php' ?>

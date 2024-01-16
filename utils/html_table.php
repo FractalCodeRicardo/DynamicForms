@@ -33,7 +33,7 @@ class HtmlTable
         ?>
             <thead >
                 <tr>
-                <? 
+                <?php 
 
                     foreach($this->columns as $c){   
                         
@@ -46,7 +46,7 @@ class HtmlTable
 
                 </tr>
             </thead>
-        <?
+        <?php 
     }
 
 
@@ -54,7 +54,7 @@ class HtmlTable
 
         ?>
             <tbody>
-                <?
+                <?php
                     foreach($rows as $row){
                         $this->renderRow($row);  
                     }
@@ -68,13 +68,13 @@ class HtmlTable
     private function renderRow($row){
         ?>
         <tr>
-            <?
+            <?php
             foreach ($this->columns as $col) {
                 $this->renderColumn($row, $col);
             }
             ?>
         </tr>
-        <?
+        <?php
     }
 
     private function renderColumn($row, $column){

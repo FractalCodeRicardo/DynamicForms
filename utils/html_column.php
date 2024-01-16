@@ -1,4 +1,4 @@
-<?
+<?php
 
 class HtmlColumn{
 
@@ -8,6 +8,7 @@ class HtmlColumn{
     public $Index;
     public $Text;
     public $Expression;
+    public $Width;
 
     public $ColumnAttributes;
 

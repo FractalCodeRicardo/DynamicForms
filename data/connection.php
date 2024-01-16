@@ -9,12 +9,9 @@ class Connection
 	private $password='toor';
 
 
-
 	function __construct(){
 
 	}
-
-	
 
 
 	function getPDO(){

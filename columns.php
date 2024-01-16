@@ -1,7 +1,7 @@
 <? include 'header.php'?>
 
 
-<?  
+<?php 
     include 'data/forms_data.php';
     include 'data/connection.php';
     include 'utils/html_table.php';
@@ -32,7 +32,7 @@
 
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-        <?
+        <?php
             foreach($forms as $form){
 
                 echo '<a class="dropdown-item" href="columns.php?id_form=' . $form[0] . '">' . $form[1] . '</a>';
@@ -46,18 +46,16 @@
 </div>
 
 <div class="row">
-    <h1> <? echo $selectedForm!=null ? $selectedForm->Description : "" ?> <h1>
+    <h1> <?php echo $selectedForm!=null ? $selectedForm->Description : "" ?> <h1>
 </div>
 
 <div class="row justify-content-end">
-	<a href=<? echo '"edit_column.php?id_form='.($selectedForm==null? "0" : $selectedForm->Id). '"'?>   class="btn btn-primary" >Add</a>
+	<a href=<?php echo '"edit_column.php?id_form='.($selectedForm==null? "0" : $selectedForm->Id). '"'?>   class="btn btn-primary" >Add</a>
 </div>
 
 
 <div class="row">
 <?php
-
-
 
             $formUrl="";
 
@@ -94,4 +92,4 @@
 </div>
 
 </div>
-<? include 'footer.php'?>
+<?php include 'footer.php'?>

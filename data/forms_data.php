@@ -1,7 +1,5 @@
 <?php 
 
-
-
 class FormsData{
 
 	private $pdo;
@@ -10,7 +8,6 @@ class FormsData{
 	function __construct($pdo){
 		$this->pdo = $pdo;
 	}
-
 
 
 	function getForms(){
@@ -105,8 +102,6 @@ class FormsData{
 	}
 
 
-
-
 	function saveForm($form){
 
 		if($form->Id<=0)
@@ -153,7 +148,6 @@ class FormsData{
 			var_dump($stmt->errorInfo());
 	}
 
-
 	function updateForm($form){
 		$sql = "UPDATE forms SET description=? where id=" . $form->Id;
 		$stmt= $this->pdo->prepare($sql);
@@ -163,10 +157,6 @@ class FormsData{
 		if(!$result)
 			var_dump($stmt->errorInfo());
 	}
-
-
-
-
 }
 
  ?>

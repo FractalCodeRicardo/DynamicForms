@@ -28,24 +28,24 @@ $stmt = $data->getForms();
 <?php
 
 
-			$linkColumn = HtmlColumn::createLinkColumn("View", function ($row) { return "./form.php?id=". $row[0];});
-			$linkColumn->ColumnAttributes =  'style="width: 5%"';
+			// $linkColumn = HtmlColumn::createLinkColumn("View", function ($row) { return "./form.php?id=". $row[0];});
+			// $linkColumn->ColumnAttributes =  'style="width: 5%"';
 
-			$editColumns = HtmlColumn::createLinkColumn("Edit", function ($row) { return "./edit_form.php?id=". $row[0];});
-			$editColumns->ColumnAttributes =  'style="width: 5%"';
+			// $editColumns = HtmlColumn::createLinkColumn("Edit", function ($row) { return "./edit_form.php?id=". $row[0];});
+			// $editColumns->ColumnAttributes =  'style="width: 5%"';
 
-			$deleteColumn = HtmlColumn::createLinkColumn("Delete", function ($row) { return "./delete_form.php?id=". $row[0];});
-			$deleteColumn->ColumnAttributes =  'style="width: 5%"';
+			// $deleteColumn = HtmlColumn::createLinkColumn("Delete", function ($row) { return "./delete_form.php?id=". $row[0];});
+			// $deleteColumn->ColumnAttributes =  'style="width: 5%"';
 
-			$linkColumns=array($linkColumn, $editColumns, $deleteColumn);
+			// $linkColumns=array($linkColumn, $editColumns, $deleteColumn);
 
 
 			
 
-			$textColumns = HtmlColumn::createColumns(array('Form', 'Description'));
-			$columns = array_merge($linkColumns, $textColumns);
-			$table = new HtmlTable($columns);
-			$table->renderHtml($stmt);
+			// $textColumns = HtmlColumn::createColumns(array('Form', 'Description'));
+			// $columns = array_merge($linkColumns, $textColumns);
+			// $table = new HtmlTable($columns);
+			// $table->renderHtml($stmt);
 
 ?>
 </div>

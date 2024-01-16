@@ -2,7 +2,7 @@
 
 
 
-<?
+<?php
     $idForm =0; // obtener id form
     $currentColumn = null;
 
@@ -71,10 +71,10 @@
         <div class="form-group">
             <label >Description</label>
             <input type="text" class="form-control" name="description" placeholder="Description" 
-            value="<? echo $currentColumn ==null ? "" : $currentColumn->Description  ?>">
+            value="<?php echo $currentColumn ==null ? "" : $currentColumn->Description  ?>">
         </div>
 
-        <? $type= (isset($currentColumn) ? $currentColumn->Type : "");
+        <?php $type= (isset($currentColumn) ? $currentColumn->Type : "");
 
         ?>
 
@@ -105,4 +105,4 @@
     </div >
 
 </div>
-<? include 'footer.php'?>
+<?php include 'footer.php'?>
